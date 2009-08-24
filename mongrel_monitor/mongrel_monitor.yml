@@ -1,0 +1,12 @@
+options:
+  mongrel_conf_path:
+    name: Mongrel Configuration Path
+    notes: The location of the Mongrel configuration file.
+    default: /data/kashless/shared/config/mongrel_cluster.yml
+
+  mongrel_rails_command:
+    name: Mongrel Rails Command
+    notes: The full path to the mongrel_rails command.
+    default: /usr/bin/mongrel_rails
+    
+

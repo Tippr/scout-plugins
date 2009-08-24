@@ -1,0 +1,24 @@
+= Mongrel Monitor
+
+Based on {Mongrel Cluster Monitor}[http://github.com/highgroove/scout-plugins/tree/master/mongrel_cluster_monitor] created by:
+* Adam Parrott at {Plexus Web Creations}[http://www.plexusweb.com]
+* {Highgroove Studios LLC}[http://www.highgroove.com]
+
+== Summary
+
+This plugin will monitor a mongrel_cluster configuration file and attempt to run the "status" command using:
+
+  mongrel_rails cluster::status -C /etc/mongrel_cluster.yml
+
+It will report back the number of Mongrel instances running and the number down.
+
+== Dependencies
+
+Requires +mongrel+ and +mongrel_cluster+ (http://mongrel.rubyforge.org/):
+
+  sudo gem install mongrel mongrel_cluster
+
+== Options
+
+* Mongrel Configuration Path
+* Mongrel Rails Command
