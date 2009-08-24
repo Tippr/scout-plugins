@@ -10,3 +10,13 @@ options:
     default: /usr/bin/mongrel_rails
     
 
+metadata:
+  running:
+    label: Instances Running
+    units: #
+    precision: 0
+
+  stopped:
+    label: Instances Stopped
+    units: #
+    precision: 0

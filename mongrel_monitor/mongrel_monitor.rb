@@ -8,7 +8,7 @@ class MongrelMonitor < Scout::Plugin
 
     else
       report :running => status.scan(/^found mongrel_rails/).size, 
-             :down    => status.scan(/^missing mongrel_rails/).size
+             :stopped => status.scan(/^missing mongrel_rails/).size
     end
   end
 end
