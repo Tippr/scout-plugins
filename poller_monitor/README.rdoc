@@ -1,0 +1,15 @@
+= Poller Monitor
+
+Used to monitor a single poller process.
+
+== Summary
+
+This plugin will monitor the number of poller processes running using:
+
+  pgrep -fl process_name
+
+It will report back the number of PIDs.
+
+== Options
+
+* Poller Process Name

@@ -1,0 +1,16 @@
+options:
+  path_to_app:
+    name: Full Path to Rails Application
+    notes: The full path to the Rails application you wish to monitor
+    default: /data/kashless/current
+
+  poller_name:
+    name: Poller Process Name
+    notes: The name of the poller process to monitor
+    default: poller_scheduler
+
+metadata:
+  pollers:
+    label: Pollers Running
+    units: #
+    precision: 0
