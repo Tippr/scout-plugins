@@ -8,15 +8,14 @@ options:
     name: Mongrel Rails Command
     notes: The full path to the mongrel_rails command.
     default: /usr/bin/mongrel_rails
-    
 
 metadata:
   running:
-    label: Instances Running
+    label: Running
     units: #
     precision: 0
 
   stopped:
-    label: Instances Stopped
+    label: Stopped
     units: #
     precision: 0
