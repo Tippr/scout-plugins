@@ -5,8 +5,8 @@ class PollerMonitor < Scout::Plugin
     # monitor poller process count
     name, total = @options.values_at( 'poller_name', 'poller_total' )
     running = `pgrep -f #{name}`.split("\n").size
-    stats.update 'pollers.running' => running,
-                 'pollers.stopped' => [total-running, 0].max
+    stats.update 'running' => running,
+                 'stopped' => [total-running, 0].max
 
     # monitor new craigslist posts
 #    require "#{@options['path_to_app']}/config/environment"
