@@ -11,7 +11,7 @@ class PollerMonitor < Scout::Plugin
     # monitor new craigslist posts
 #    require "#{@options['path_to_app']}/config/environment"
 #    last_run = memory(:last_run) || 1.hour.ago
-#    stats['new_listings.craigslist'] = Listing.count( :conditions => ['datasource_type_id = ? AND created_at > ?', DataSourceType[:craigslist].id, last_run] )
+#    stats['new_listings'] = Listing.count( :conditions => ['datasource_type_id = ? AND created_at > ?', DataSourceType[:craigslist].id, last_run] )
 #    remember :last_run => Time.now
 
     report stats

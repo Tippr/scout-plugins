@@ -15,7 +15,17 @@ options:
     default: 1
 
 metadata:
-  pollers:
-    label: Pollers Running
+  running:
+    label: Running
+    units: #
+    precision: 0
+
+  stopped:
+    label: Stopped
+    units: #
+    precision: 0
+
+  new_listings:
+    label: New Listings
     units: #
     precision: 0
