@@ -9,6 +9,11 @@ options:
     notes: The name of the poller process to monitor
     default: poller_scheduler
 
+  poller_total:
+    name: Poller Process Total
+    notes: The number of processes expected to run
+    default: 1
+
 metadata:
   pollers:
     label: Pollers Running
