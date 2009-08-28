@@ -23,19 +23,3 @@ options:
   table_names:
     name: Table Names
     notes: Names of the tables to monitor (comma-seperated)
-
-#metadata:
-#  running:
-#    label: Running
-#    units: #
-#    precision: 0
-#
-#  stopped:
-#    label: Stopped
-#    units: #
-#    precision: 0
-#
-#  new_listings:
-#    label: New Listings
-#    units: #
-#    precision: 0

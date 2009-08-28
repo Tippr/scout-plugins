@@ -26,7 +26,7 @@ class TableMonitor < Scout::Plugin
       table.strip!
       table_name = mysql.escape_string table
       res = mysql.query("SELECT (UTC_TIMESTAMP-created_at) FROM #{table_name} order BY id DESC LIMIT 1")
-      ages[table] = res.fetch_row.first.to_f
+      ages[table] = res.fetch_row.first.to_f / 60.0
       res.free
     end
     report ages  unless ages.empty?
