@@ -1,0 +1,41 @@
+options:
+  user:
+    name: MySQL username
+    notes: Specify the username to connect with
+    default: root
+  password:
+    name: MySQL password
+    notes: Specify the password to connect with
+  host:
+    name: MySQL host
+    notes: Specify something other than 'localhost' to connect via TCP
+    default: localhost
+  port:
+    name: MySQL port
+    notes: Specify the port to connect to MySQL with (if nonstandard)
+  socket:
+    name: MySQL socket
+    notes: Specify the location of the MySQL socket
+
+  database:
+    name: MySQL database
+    notes: Specify the name of the MYSQL database
+  table_names:
+    name: Table Names
+    notes: Names of the tables to monitor (comma-seperated)
+
+#metadata:
+#  running:
+#    label: Running
+#    units: #
+#    precision: 0
+#
+#  stopped:
+#    label: Stopped
+#    units: #
+#    precision: 0
+#
+#  new_listings:
+#    label: New Listings
+#    units: #
+#    precision: 0

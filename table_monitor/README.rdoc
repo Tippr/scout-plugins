@@ -1,0 +1,17 @@
+= Table Monitor
+
+Reports the age of one or more MySQL database tables.
+
+== Summary
+
+For each table, report the time since the most recent row was created (in seconds, ordered by row id).
+
+== Options
+
+* MySQL username
+* MySQL password
+* MySQL host
+* MySQL port
+* MySQL socket
+* MySQL database
+* Table Names (comma-seperated)
