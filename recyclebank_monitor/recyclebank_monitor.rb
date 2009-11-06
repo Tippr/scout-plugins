@@ -44,6 +44,7 @@ WHERE recycle_bank_users.account IS NOT NULL
     while row = res.fetch_row
       stats[row[0] || ''], stats["#{row[0]}.amount"] = row[1].to_i, row[2].to_i
     end
+    stats['failed'] ||= 0
     res.free
 
     report stats
