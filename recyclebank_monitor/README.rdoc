@@ -1,0 +1,13 @@
+= RecycleBank Monitor
+
+Reports statistics on the RecycleBank backend process.
+
+== Options
+
+* MySQL username
+* MySQL password
+* MySQL host
+* MySQL port
+* MySQL socket
+* MySQL database
+
