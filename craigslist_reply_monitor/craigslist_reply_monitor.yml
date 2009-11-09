@@ -1,0 +1,20 @@
+options:
+  user:
+    name: MySQL username
+    notes: Specify the username to connect with
+  password:
+    name: MySQL password
+    notes: Specify the password to connect with
+  host:
+    name: MySQL host
+    notes: Specify something other than 'localhost' to connect via TCP
+  port:
+    name: MySQL port
+    notes: Specify the port to connect to MySQL with (if nonstandard)
+  socket:
+    name: MySQL socket
+    notes: Specify the location of the MySQL socket
+
+  database:
+    name: MySQL database
+    notes: Specify the name of the MYSQL database

@@ -1,0 +1,12 @@
+= Craigslist Reply Monitor
+
+Reports how long it's been since the last conversation reply for a Craigslist listing.
+
+== Options
+
+* MySQL username
+* MySQL password
+* MySQL host
+* MySQL port
+* MySQL socket
+* MySQL database
