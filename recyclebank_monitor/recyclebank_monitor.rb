@@ -20,7 +20,8 @@ class RecyclebankMonitor < Scout::Plugin
                            :body => "Scout was unable to connect to the mysql server with the following options: #{@options.inspect}: #{e.backtrace}"}
     end
 
-    stats = {}
+    stats = { 'failure' => 0 }
+    # Unclaimed transfers
     res = mysql.query "SELECT COUNT(*), SUM(amount)
                          FROM recycle_bank_transfers LEFT JOIN users
                            ON recycle_bank_transfers.user_id = users.id
@@ -32,20 +33,33 @@ WHERE recycle_bank_users.account IS NULL"
     stats['unclaimed'], stats['unclaimed.amount'] = row[0].to_i, row[1].to_i
     res.free
 
+    # Processing transfers
     res = mysql.query "SELECT gconomy_state, COUNT(*), SUM(amount)
                          FROM recycle_bank_transfers LEFT JOIN users
                            ON recycle_bank_transfers.user_id = users.id
 LEFT JOIN recycle_bank_users
 ON recycle_bank_users.user_id = users.id
 WHERE recycle_bank_users.account IS NOT NULL
-
                      GROUP BY recycle_bank_transfers.gconomy_state"
 #                        WHERE users.recycle_bank_account IS NOT NULL
     while row = res.fetch_row
       stats[row[0] || ''], stats["#{row[0]}.amount"] = row[1].to_i, row[2].to_i
     end
-    stats['failed'] ||= 0
     res.free
+
+    # Transfer ages
+    res = mysql.query "SELECT gconomy_state, TIME_TO_SEC( TIMEDIFF(UTC_TIMESTAMP, MIN(recycle_bank_transfers.updated_at)) ) / (24 * 60 * 60.0)
+                         FROM recycle_bank_transfers LEFT JOIN users
+                           ON recycle_bank_transfers.user_id = users.id
+LEFT JOIN recycle_bank_users
+ON recycle_bank_users.user_id = users.id
+WHERE recycle_bank_users.account IS NOT NULL
+                          AND gconomy_state IN ('created','submitted')
+                     GROUP BY recycle_bank_transfers.gconomy_state";
+#                        WHERE users.recycle_bank_account IS NULL"
+    while row = res.fetch_row
+      stats["#{row[0]}.oldest"] = row[1].to_i
+    end
 
     report stats
   end

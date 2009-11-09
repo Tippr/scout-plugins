@@ -25,7 +25,10 @@ class TableMonitor < Scout::Plugin
     for table in tables
       table.strip!
       table_name = mysql.escape_string table
-      res = mysql.query("SELECT TIME_TO_SEC( TIMEDIFF(UTC_TIMESTAMP, created_at) ) / 60.0 FROM #{table_name} order BY id DESC LIMIT 1")
+      res = mysql.query "SELECT TIME_TO_SEC( TIMEDIFF(UTC_TIMESTAMP, created_at) ) / 60.0
+                         FROM #{table_name}
+                         ORDER BY id DESC
+                         LIMIT 1"
       ages[table] = res.fetch_row.first.to_f
       res.free
     end
