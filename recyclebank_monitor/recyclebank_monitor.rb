@@ -48,7 +48,7 @@ WHERE recycle_bank_users.account IS NOT NULL
     res.free
 
     # Transfer ages
-    res = mysql.query "SELECT gconomy_state, TIME_TO_SEC( TIMEDIFF(UTC_TIMESTAMP, MIN(recycle_bank_transfers.updated_at)) ) / (24 * 60 * 60.0)
+    res = mysql.query "SELECT gconomy_state, TIME_TO_SEC( TIMEDIFF(UTC_TIMESTAMP, MIN(recycle_bank_transfers.updated_at)) ) / (60 * 60.0)
                          FROM recycle_bank_transfers LEFT JOIN users
                            ON recycle_bank_transfers.user_id = users.id
 LEFT JOIN recycle_bank_users
