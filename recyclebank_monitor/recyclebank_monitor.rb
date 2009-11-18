@@ -46,7 +46,7 @@ class RecyclebankMonitor < Scout::Plugin
                          FROM recycle_bank_transfers LEFT JOIN users
                            ON recycle_bank_transfers.user_id = users.id
                           AND gconomy_state IN ('created','submitted')
-                        WHERE users.recycle_bank_account IS NULL
+                        WHERE users.recycle_bank_account IS NOT NULL
                      GROUP BY recycle_bank_transfers.gconomy_state"
     while row = res.fetch_row
       stats["#{row[0]}.oldest"] = row[1].to_i
